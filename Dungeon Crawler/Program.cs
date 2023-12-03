@@ -31,3 +31,42 @@ public class MainMenu
         }
     }
 }
+
+public enum HeroType
+{
+    Gladiator,
+    Enchanter,
+    Marksman
+}
+
+public class Hero
+{
+    public string Name { get; set; }
+    public int Health { get; set; }
+    public int Damage { get; set; }
+    public HeroType Type { get; set; }
+
+    public Hero(string name, int health, int damage, HeroType type)
+    {
+        this.Name = name;
+        this.Health = health;
+        this.Damage = damage;
+        this.Type = type;
+    }
+}
+
+public class Monster
+{
+    public string Name { get; set; }
+    public int Health { get; set; }
+    public int Damage { get; set; }
+    public int Experience { get; set; }
+
+    public Monster(string name, int health, int damage, int experience)
+    {
+        this.Name = name;
+        this.Health = health;
+        this.Damage = damage;
+        this.Experience = experience;
+    }
+}
