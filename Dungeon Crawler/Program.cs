@@ -264,6 +264,45 @@ public class Monster
     }
 }
 
+public class Goblin : Monster
+{
+    public double SideAttackProbability { get; set; }
+    public Goblin(string name, int health, int damage, int experience) : base(name, health, damage, experience)
+    {
+        SideAttackProbability = 0.6;
+    }
+
+    double randomValue = new Random().NextDouble();
+
+    public void SneakyAttack()
+    {
+        if (randomValue <= SideAttackProbability)
+        {
+            int sneakDamage = Damage * 2;
+            Console.WriteLine($"{Name} izvodi podmukli napad sa strane i nanosi duplu štetu ({sneakDamage})!");
+        }
+    }
+}
+
+public class Brute : Monster
+{
+    public double HeavyAttackProbability { get; set; }
+    public Brute(string name, int health, int damage, int experience) : base(name, health, damage, experience)
+    {
+        HeavyAttackProbability = 0.2;
+    }
+
+    public void PerformHeavyAttack()
+    {
+        double randomValue = new Random().NextDouble();
+        if (randomValue < HeavyAttackProbability)
+        {
+            int heavyDamage = Damage * 3;
+            Console.WriteLine($"{Name} izvodi snažan napad i nanosi trostruku štetu ({heavyDamage})!");
+        }
+    }
+}
+
 public class Fight
 {
     public Hero Hero { get; set; }
