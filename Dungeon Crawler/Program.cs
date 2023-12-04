@@ -89,6 +89,144 @@ public class Hero
                 return Action.Unknown;
         }
     }
+
+    public static Hero CreateHero()
+    {
+        Console.WriteLine("Unesite ime heroja: ");
+        string name = Console.ReadLine();
+
+        Console.WriteLine("Odaberite vrstu heroja:\n1 - Gladiator\n2 - Enchanter\n3 - Marksman");
+        int choice = int.Parse(Console.ReadLine());
+
+        HeroType heroType;
+        switch (choice)
+        {
+            case 1:
+                heroType = HeroType.Gladiator;
+                break;
+            case 2:
+                heroType = HeroType.Enchanter;
+                break;
+            case 3:
+                heroType = HeroType.Marksman;
+                break;
+            default:
+                // default type is Gladiator
+                heroType = HeroType.Gladiator;
+                break;
+        }
+    }
+
+    public void LevelUp()
+    {
+        // xp is 0 after levelup
+        Experience = 0;
+
+        // increasing level
+        Level++;
+
+        // increasing damage and health
+        Health += 15;
+        Damage += 5;
+
+        // print message
+        Console.WriteLine($"{Name} je dostigao novi nivo! Novi nivo: {Level}");
+        Console.WriteLine($"Zdravlje je povećano na {Health}, šteta je povećana na {Damage}.");
+    }
+}
+
+public class Gladiator : Hero
+{
+    public int RageTreshold { get; set; }
+    public Gladiator(string name, int health, int experience, int damage, HeroType type) : base(name, health, experience, damage, type)
+    {
+        RageTreshold = (int)(health * 0.3);
+    }
+
+    public void RageAttack()
+    {
+        if (Health >= RageTreshold)
+        {
+            Health -= (int)(Health * 0.15);
+
+            int doubleDamage = Damage * 2;
+            Console.WriteLine($"{Name} napada iz bijesa i nanosi duplu štetu ({doubleDamage})!");
+        }
+        else
+        {
+            Console.WriteLine($"{Name} nema dovoljno zdravlja za napad iz bijesa");
+        }
+    }
+}
+
+public class Enchanter : Hero
+{
+    public int Mana { get; set; }
+    public int MaxMana { get; set; }
+
+    public Enchanter(string name, int health, int experience, int damage, HeroType type) : base(name, health, experience, damage, type)
+    {
+        Mana = MaxMana = 50;
+    }
+
+    public void UseMana(int amount)
+    {
+        if (Mana >= amount)
+        {
+            Mana -= amount;
+            Console.WriteLine($"{Name} koristi {amount} poena mane za napad!");
+        }
+        else
+        {
+            Console.WriteLine($"{Name} nema dovoljno mane za napad.");
+        }
+    }
+
+    public void RestoreMana()
+    {
+        Mana = MaxMana;
+        Console.WriteLine($"{Name} obnavlja manu nakon bitke.");
+    }
+}
+
+public class Marksman : Hero
+{
+    public double CriticalChance { get; set; }
+    public double StunChance { get; set; }
+
+    public Marksman(string name, int health, int experience, int damage, HeroType type) : base(name, health, experience, damage, type)
+    {
+        CriticalChance = 0.1;
+        StunChance = 0.05;
+    }
+
+    public void AttackWithCritical()
+    {
+        double randomValue = new Random().NextDouble();
+
+        if (randomValue < CriticalChance)
+        {
+            int doubleDamage = Damage * 2;
+            Console.WriteLine($"{Name} izvodi kritični udarac i nanosi duplu štetu ({doubleDamage})!");
+        }
+        else
+        {
+            Console.WriteLine($"{Name} izvodi običan napad.");
+        }
+    }
+
+    public bool ApplyStun()
+    {
+        double randomValue = new Random().NextDouble();
+
+        if (randomValue < StunChance)
+        {
+            Console.WriteLine($"{Name} omamljuje protivnika! Protivnik gubi rundu.");
+            return true;
+        }
+
+        return false;
+    }
 }
 
 public class Monster
@@ -166,7 +304,7 @@ public class Fight
                     case Action.Counter:
                         return Hero.Damage * 2;
                     default:
-                        return -1;
+                        return 0;
                 }
             
             case Action.Side:
@@ -179,7 +317,7 @@ public class Fight
                     case Action.Counter:
                         return Hero.Damage / 2;
                     default: 
-                        return -2;
+                        return 0;
                 }
 
             case Action.Counter:
@@ -192,11 +330,11 @@ public class Fight
                     case Action.Counter:
                         return Hero.Damage;
                     default:
-                        return -3;
+                        return 0;
                 }
 
             default:
-                return -4;
+                return 0;
         }
     }
 }

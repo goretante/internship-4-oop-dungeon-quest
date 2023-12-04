@@ -8,24 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Krešo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Ante\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Krešo\\Desktop\\Ante\\dump\\domaci 4\\internship-4-oop-dungeon-quest\\Dungeon Crawler\\Dungeon Crawler.csproj",
+      "projectUniqueName": "C:\\Users\\Ante\\Desktop\\programiranje\\dump\\domaci 4\\internship-4-oop-dungeon-quest\\Dungeon Crawler\\Dungeon Crawler.csproj",
       "projectName": "Dungeon Crawler",
-      "projectPath": "C:\\Users\\Krešo\\Desktop\\Ante\\dump\\domaci 4\\internship-4-oop-dungeon-quest\\Dungeon Crawler\\Dungeon Crawler.csproj",
-      "packagesPath": "C:\\Users\\Krešo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Krešo\\Desktop\\Ante\\dump\\domaci 4\\internship-4-oop-dungeon-quest\\Dungeon Crawler\\obj\\",
+      "projectPath": "C:\\Users\\Ante\\Desktop\\programiranje\\dump\\domaci 4\\internship-4-oop-dungeon-quest\\Dungeon Crawler\\Dungeon Crawler.csproj",
+      "packagesPath": "C:\\Users\\Ante\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ante\\Desktop\\programiranje\\dump\\domaci 4\\internship-4-oop-dungeon-quest\\Dungeon Crawler\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Krešo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Ante\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -56,17 +51,11 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
       }
     }
   }
