@@ -303,6 +303,29 @@ public class Brute : Monster
     }
 }
 
+public class Witch : Monster
+{
+    public int GingerbreadCount { get; private set; }
+    public Witch(string name, int health, int damage, int experience) : base(name, health, damage, experience)
+    {
+        GingerbreadCount = 3;
+    }
+
+    public void CastGingerbreadSpell()
+    {
+        if (GingerbreadCount > 0)
+        {
+            Console.WriteLine($"{Name} baca čarobni đumbus!");
+
+        }
+    }
+}
+
+public class Participant
+{
+   
+}
+
 public class Fight
 {
     public Hero Hero { get; set; }
